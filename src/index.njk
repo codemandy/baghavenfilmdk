@@ -1,0 +1,32 @@
+---
+meta:
+  lang: en
+  title: Baghaven Film
+  description: Template for static site generator Eleventy with Boostrap 5 and SCSS/JS compilation via laravel-mix.
+layout: base
+---
+
+{% block content %}
+<div class="card-container overflow-hidden">
+  <div class="row gx-5">
+    {% for films in collections.films %}
+    <div class="col-md-6 card">
+      <div class="text-white bg-dark">
+        <div class="iframe js-player plyr__video-embed" id="player">
+          <iframe
+            src="https://player.vimeo.com/video/{{
+              films.data.vimeo_id
+            }}?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media"
+            allowfullscreen
+            allowtransparency
+            allow="autoplay"
+            ratio="16:9"
+          ></iframe>
+        </div>
+        <h2 class="card-title">{{ films.data.title }} {{ films.data.kunde }}</h2>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

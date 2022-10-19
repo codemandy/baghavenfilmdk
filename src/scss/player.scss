@@ -1,0 +1,14 @@
+#player {
+  --plyr-color-main: rgb(127, 127, 127);
+  --plyr-video-background: rgb(0, 0, 0);
+  --plyr-badge-text-color: gray;
+  --plyr-audio-range-track-background: gray;
+}
+
+.plyr__video-embed {
+  aspect-ratio: 16/9 !important;
+}
+
+.plyr--full-ui.plyr--video .plyr__control--overlaid {
+  visibility: hidden;
+}

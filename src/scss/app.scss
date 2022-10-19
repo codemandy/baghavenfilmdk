@@ -1,0 +1,54 @@
+/*
+ * Import bootstrap5 the SASS-way
+ * See: https://getbootstrap.com/docs/5.0/customize/sass/#importing
+ */
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+
+// 2. Variable overrides
+@import "my_variables";
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+// 4. Include any optional Bootstrap components as you like
+// Sustainability: You can comment out not needed components here
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+
+// Helpers
+@import "~bootstrap/scss/helpers";
+
+// Utilities
+@import "~bootstrap/scss/utilities/api";
+
+@import "base";
+@import "player";
+@import "custom";
+
+// 5. Add additional custom code here
+/*
+ * Your custom scss
+ * Add your styles here
+ */
+
+//bootstrap overrides!
+
+.navbar {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.nav-ul {
+  @media (max-width: 768px) {
+    display: flex;
+    margin-top: 0;
+    flex-direction: column;
+  }
+}

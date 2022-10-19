@@ -1,0 +1,134 @@
+// IMAGES
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.img-fit-cover-container {
+  &.rounded-3 {
+    picture img {
+      border-radius: 0.3rem !important;
+    }
+  }
+  picture {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  picture img {
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+  }
+}
+
+//Video
+.iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+// Navigation
+
+#logo {
+  width: 192px;
+}
+
+.nav-item {
+  list-style: none;
+
+  a:hover {
+    text-decoration: underline;
+    text-decoration-color: gray;
+    text-decoration-thickness: 1.2px;
+    text-underline-offset: 5px;
+  }
+
+  @media (max-width: 768px) {
+    padding-bottom: 10px;
+  }
+}
+
+.nav-link-2 {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+  color: gray;
+}
+
+.nav-ul {
+  display: inline-flex;
+  margin-top: 40px;
+}
+
+.link-padding {
+  @media (max-width: 768px) {
+    display: flex;
+    margin-top: 0;
+    flex-direction: column;
+    padding-right: 0;
+  }
+  padding-right: 20px;
+}
+
+.active {
+  color: black;
+  text-decoration: underline;
+  text-decoration-thickness: 1.2px;
+  text-underline-offset: 5px;
+}
+
+.nav-container {
+  align-items: start !important;
+}
+
+.nav-scroll {
+  position: fixed;
+  z-index: 99;
+  @media (max-width: 768px) {
+    top: 0;
+    margin-top: 30px;
+  }
+}
+
+.nav-container {
+  height: 190px;
+}
+
+.card {
+  margin-bottom: 45px;
+}
+
+.card-title {
+  margin-top: 12px;
+}
+
+.kontakt-link {
+  color: black !important;
+  text-decoration: underline;
+  text-decoration-thickness: 1.2px;
+  text-underline-offset: 5px;
+}
+
+.kontakt-link:hover {
+  color: gray;
+  text-decoration: underline;
+  text-decoration-color: gray;
+  text-decoration-thickness: 1.2px;
+  text-underline-offset: 5px;
+}
+
+.tlf {
+  text-decoration: none !important;
+  color: black !important;
+}

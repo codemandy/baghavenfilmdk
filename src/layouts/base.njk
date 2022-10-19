@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="{{ meta.lang or site.lang }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ site.title }} - {{ title or meta.title }}</title>
+
+    <link rel="stylesheet" href="{{ '/dist/app.css' | url }}" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
+
+    <script
+      src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+      integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
+      crossorigin="anonymous"
+    ></script>
+    {% include "meta.njk" %}
+  </head>
+
+  <body d-flex flex-column min-vh-100>
+    <div id="spacer0"></div>
+    <main id="arbejde">
+      {% include "header.njk" %}
+      <div class="section">
+        <div class="container-fluid">
+          {{ content | safe }}
+        </div>
+      </div>
+      <div id="spacer"></div>
+      {% for post in collections.om_os %}
+      <div class="section" id="om_os">
+        <div class="container-fluid  h-100 d-flex flex-column" id="om_os">
+          <div class="col-md-8">
+            <div class="row">
+              <h3>
+                    {{ post.data.baghaven_film }}
+              </h3>
+            </div>
+
+            <div class="card-container overflow-hidden mt-4">
+              <div class="row gx-4">
+                <div class="col-md-6 mb-4">
+                  <div class="h-100 text-white bg-dark">
+                    <img src="assets/images/jakob600.jpg" class="img-fluid" id="card-img" alt="Baghaven Film logo" />
+
+                    <h4 class="card-title">
+                      {{ post.data.jakob }} <br><br> {{ post.data.jakob_info }}
+                    </h4>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="h-100 text-white bg-dark">
+                    <img src="assets/images/emil600.jpg" class="img-fluid" id="card-img" alt="Baghaven Film logo" />
+
+                    <h4 class="card-title">
+                    {{ post.data.emil }} <br><br> {{ post.data.emil_info }}
+                    </h4>
+                  </div>
+                </div>
+                {% endfor %}
+
+                {% for trailer in collections.trailers %}
+                <div class="col-md-6 mb-4" id="trailers">
+                  <h2 class="card-title">Trailer for ‘{{ trailer.data.title }}’</h2>
+                  <div class="h-100 text-white bg-dark">
+                    <div class="iframe js-player plyr__video-embed" id="player">
+                      <iframe
+                        src="https://player.vimeo.com/video/{{ trailer.data.vimeo_id }}?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media"
+                        allowtransparency
+                        allow="autoplay"
+                        iosNative: true
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="section" id="kontakt">
+        {% for kontakt in collections.kontakt %}
+        <div class="container-fluid d-flex flex-column" id="kontakt">
+          <div class="row">
+            <h5>
+              <a href="mailto:baghavenfilm@mail.com" class="kontakt-link">{{ kontakt.data.email }} </a>
+              <br /><br />
+              <span class="tlf">{{ kontakt.data.jakob_telefon }}</span><br />
+                <span class="tlf">{{ kontakt.data.emil_telefon }}</span> <br /><br />
+              Instagram: <a href="https://baghaven.netlify.app/" class="kontakt-link" target="_blank">{{ kontakt.data.instagram }}</a>
+            </h5>
+          </div>
+        </div>
+
+        <div class="container-fluid mt-auto" id="footer">
+          <h4>{{ kontakt.data.footer }}</h4>
+        </div>
+        {% endfor %}
+      </div>
+    </main>
+    <meta name="format-detection" content="telephone=no">
+    <script type="text/javascript" src="{{ '/dist/app.js' | url }}"></script>
+  </body>
+</html>
